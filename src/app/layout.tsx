@@ -16,7 +16,7 @@ const quickSand = Quicksand({
 });
 
 export const metadata: Metadata = {
-  title: "Foundatone",
+  title: "Fondaton",
 };
 
 export default function RootLayout({
