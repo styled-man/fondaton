@@ -5,7 +5,7 @@ export default function Home() {
     <>
       <header className="w-full h-32 lg:h-44 pt-10">
         <div className="text-center">
-          <h1 className="text-6xl lg:text-8xl font-leaguespartan font-bold">
+          <h1 className="text-6xl lg:text-8xl font-leaguespartan font-bold text-primary">
             Fondaton
           </h1>
         </div>
