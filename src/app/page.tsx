@@ -15,7 +15,7 @@ export default function Home() {
         />
         <div className="absolute text-center">
           <h1 className="text-4xl lg:text-8xl font-leaguespartan font-bold">
-            Foundatone .
+            Fondaton
           </h1>
           <h2 className="text-xl font-quicksand tracking-[0.5rem] lg:tracking-[1rem]">
             cosmetics
