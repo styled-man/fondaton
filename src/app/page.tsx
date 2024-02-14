@@ -18,7 +18,7 @@ export default function Home() {
             Fondaton
           </h1>
           <h2 className="text-xl font-quicksand tracking-[0.5rem] lg:tracking-[1rem]">
-            cosmetics
+           
           </h2>
         </div>
       </main>
