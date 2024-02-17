@@ -17,7 +17,7 @@ export default function Indicator({ currentStep, style = "dark" }: IndicatorProp
             style === "dark" ? "bg-dark" : "bg-white", // pick the default color based on the style
             currentStep === index + 1 && "w-7 opacity-100" // make the current step bigger than the rest
           )}
-          key={step + index + Math.floor(Math.random() * 10000)}
+          key={step + index.toString() + Math.floor(Math.random() * 10000).toString()}
         />
       ))}
     </div>

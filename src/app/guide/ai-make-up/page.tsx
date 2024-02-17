@@ -8,12 +8,13 @@ import Indicator from "../Indicator";
 export default function AiMakeUp() {
   return (
     <>
-      <div className="relative w-full">
+      <div>
         <Image
-          src="/assets/placeholder.jpeg"
+          className="h-[50vh] object-cover"
+          src="/assets/images/guide/ai-make-up.png"
           alt="Make up person's face"
-          width={1000}
-          height={666}
+          width={430}
+          height={695}
           sizes="100vw"
           priority
         />

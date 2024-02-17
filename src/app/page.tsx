@@ -1,6 +1,14 @@
 import Image from "next/image";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
 export default function Home() {
+  const cooieStore = cookies();
+
+  if (cooieStore.get("guide-status")?.value !== "done") {
+    return redirect("/guide/ai-make-up");
+  }
+
   return (
     <div className="group">
       <header className="w-full h-32 lg:h-44 pt-10">
