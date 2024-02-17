@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { twMerge } from "tailwind-merge";
 import { League_Spartan, Quicksand } from "next/font/google";
 import "./globals.css";
+import { ReactNode } from "react";
 
 const leagueSpartan = League_Spartan({
   subsets: ["latin"],
@@ -27,16 +28,14 @@ export const metadata: Metadata = {
   ],
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+interface RootLayoutProps {
+  children: ReactNode;
+  firstTime: ReactNode;
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html
-      lang="en"
-      className={twMerge(leagueSpartan.variable, quickSand.variable)}
-    >
+    <html lang="en" className={twMerge(leagueSpartan.variable, quickSand.variable)}>
       <body>{children}</body>
     </html>
   );
