@@ -11,6 +11,7 @@ const config: Config = {
       colors: {
         primary: "#A8695C",
         alt: "#F1EFE7",
+        dark: "#181A20",
       },
       fontFamily: {
         leaguespartan: ["var(--font-league-spartan)"],
@@ -18,8 +19,7 @@ const config: Config = {
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
     },
   },

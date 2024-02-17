@@ -30,7 +30,6 @@ export const metadata: Metadata = {
 
 interface RootLayoutProps {
   children: ReactNode;
-  firstTime: ReactNode;
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
