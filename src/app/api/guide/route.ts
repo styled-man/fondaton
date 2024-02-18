@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import { z } from "zod";
 import { Guide } from "@/types/api";
 
 export async function POST(request: NextRequest) {

@@ -1,16 +1,12 @@
-import Button from "@/components/Button";
-import Title from "@/components/Title";
-import Text from "@/components/Text";
 import Image from "next/image";
-import Link from "next/link";
-import Indicator from "../Indicator";
+import Footer from "../Footer";
 
 export default function AiMakeUp() {
   return (
-    <>
-      <div>
+    <div className="relative min-h-screen">
+      <div className="md:my-10 overflow-hidden">
         <Image
-          className="h-[50vh] object-cover"
+          className="h-[55vh] sm:h-[65vh] sm:rounded-3xl object-cover mx-auto"
           src="/assets/images/guide/ai-make-up.png"
           alt="Make up person's face"
           width={430}
@@ -20,18 +16,13 @@ export default function AiMakeUp() {
         />
       </div>
 
-      <div className="flex flex-col gap-7 mb-10 px-5 pt-10 text-center">
-        <Title>Edit your photos simply in just one click</Title>
-        <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...</Text>
-      </div>
-
-      <Indicator currentStep={1} />
-
-      <div className="px-5 py-5 border-t border-t-gray-200">
-        <Link href="/guide/skin-diagnostics">
-          <Button>Continue</Button>
-        </Link>
-      </div>
-    </>
+      <Footer
+        title="Edit your photos simply in just one click"
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor..."
+        nextStep={{ url: "/guide/skin-diagnostics/", label: "Continue" }}
+        currentStep={1}
+        style="dark"
+      />
+    </div>
   );
 }
