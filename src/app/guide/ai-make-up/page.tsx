@@ -17,7 +17,7 @@ export default function AiMakeUp() {
       </div>
 
       <Footer
-        title="Edit your photos simply in just one click"
+        title="Malak your photos simply in just one click"
         description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor..."
         nextStep={{ url: "/guide/skin-diagnostics/", label: "Continue" }}
         currentStep={1}

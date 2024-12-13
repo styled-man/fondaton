@@ -1,55 +1,87 @@
 "use client";
 
-import Image from "next/image";
-import { useRouter } from "next/navigation";
-import { MouseEvent } from "react";
-import Footer from "../Footer";
+import { useState } from "react";
 
 export default function FoundationMatch() {
-  const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
+  const [uploadedFile, setUploadedFile] = useState<File | null>(null);
+  const [result, setResult] = useState<{ red: number; green: number; blue: number; ita?: number } | null>(null);
+  const [backgroundColor, setBackgroundColor] = useState<string>("white"); // Default background color
 
-  async function handleStartButton(event: MouseEvent<HTMLButtonElement>) {
-    event.preventDefault();
+  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) setUploadedFile(file);
+  };
 
-    const request = await fetch("/api/guide/", {
-      method: "POST",
-      headers: {
-        ContentType: "application/json",
-      },
-      body: JSON.stringify({
-        status: "done",
-      }),
-    });
-
-    if (request.ok) {
-      router.push("/");
+  const handleSubmitPhoto = async () => {
+    if (!uploadedFile) {
+      alert("Please upload a photo first!");
+      return;
     }
-  }
+
+    setIsLoading(true);
+
+    const formData = new FormData();
+    formData.append("photo", uploadedFile);
+
+    try {
+      const response = await fetch("/api/process-photo", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        if (data.error) {
+          alert(`Error: ${data.error}`);
+        } else {
+          setResult(data);
+
+          // Convert RGB to CSS-compatible format and update background color
+          const rgbColor = `rgb(${Math.round(data.red)}, ${Math.round(data.green)}, ${Math.round(data.blue)})`;
+          setBackgroundColor(rgbColor);
+        }
+      } else {
+        alert("Failed to process the photo.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("An unexpected error occurred.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
-    <div className="relative min-h-screen">
-      <div className="relative w-full">
-        <div className="absolute bottom-0 w-full h-3/4 bg-gradient-to-t from-white to-transparent" />
-        <div>
-          <Image
-            className="h-[50vh] object-cover"
-            src="/assets/images/guide/foundation-match.png"
-            alt="Make up person's face"
-            width={430}
-            height={695}
-            sizes="100vw"
-            priority
-          />
-        </div>
+    <div
+      className="min-h-screen flex flex-col items-center justify-center"
+      style={{ backgroundColor }} // Apply dynamic background color
+    >
+      <h1 className="text-xl font-semibold mb-4">Upload Your Photo</h1>
+      <div className="mb-4">
+        <input
+          type="file"
+          accept="image/*"
+          onChange={handleFileUpload}
+          className="file-input"
+        />
       </div>
-
-      <Footer
-        title="Enjoy all the benefits with pro subscriptions"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor..."
-        nextStep={{ onClick: handleStartButton, label: "Get Started" }}
-        currentStep={3}
-        style="dark"
-      />
+      <button
+        onClick={handleSubmitPhoto}
+        className="px-4 py-2 bg-blue-500 text-white rounded"
+        disabled={isLoading}
+      >
+        {isLoading ? "Processing..." : "Submit Photo"}
+      </button>
+      {result && (
+        <div className="mt-6 text-center">
+          <h2 className="text-lg font-semibold">Processing Result</h2>
+          <p>Red: {Math.round(result.red)}</p>
+          <p>Green: {Math.round(result.green)}</p>
+          <p>Blue: {Math.round(result.blue)}</p>
+          <p>ITA: {result.ita?.toFixed(2)}</p>
+        </div>
+      )}
     </div>
   );
 }

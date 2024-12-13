@@ -32,7 +32,7 @@ export default function Home() {
 
       <footer>
         <div className="w-full text-center">
-          <h3 className="font-quicksand">Since 2023</h3>
+          <h3 className="font-quicksand">Since 2020</h3>
         </div>
       </footer>
     </div>
