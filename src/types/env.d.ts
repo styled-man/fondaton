@@ -9,4 +9,5 @@ declare namespace NodeJS {
     APPLE_ID: string;
     APPLE_SECRET: string;
   }
+  
 }

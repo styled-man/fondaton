@@ -19,6 +19,7 @@ export default function Home() {
         </div>
       </header>
 
+
       <main className="w-full relative flex items-center justify-center mb-10 h-[55vh] max-w-[80vw] lg:max-w-[600px] mx-auto">
         <Image className="object-contain" src={"/assets/logo/dark.png"} alt="Logo" fill priority />
         <Image
