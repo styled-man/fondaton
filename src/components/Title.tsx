@@ -9,7 +9,6 @@ interface TitleProps {
   className?: HTMLHeadingElement["className"];
 }
 
-
 export default function TitleProps({ children, className, style = "dark" }: TitleProps) {
   return (
     <h1 className={twMerge("font-bold text-2xl", style === "dark" ? "text-dark" : "text-white", className)}>

@@ -14,6 +14,5 @@ export default function layout({ children }: LayoutProps) {
   }
 
   return children;
-  
 }
 

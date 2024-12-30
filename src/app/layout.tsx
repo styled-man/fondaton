@@ -8,7 +8,6 @@ const leagueSpartan = League_Spartan({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-league-spartan",
-  
 });
 
 const quickSand = Quicksand({

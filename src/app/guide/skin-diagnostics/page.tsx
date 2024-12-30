@@ -2,7 +2,6 @@ import Image from "next/image";
 import Footer from "../Footer";
 
 export default function SkinDiagnostics() {
-  
   return (
     <main className="relative bg-dark min-h-screen">
       <div className="pt-10">

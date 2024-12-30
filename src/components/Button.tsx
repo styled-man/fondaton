@@ -19,6 +19,5 @@ export default function Button({ children, onClick, style = "dark" }: Button) {
     >
       {children}
     </button>
-    
   );
 }

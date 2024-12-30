@@ -10,5 +10,4 @@ declare module "next-auth" {
     };
     expires?: string;
   }
-  
 }

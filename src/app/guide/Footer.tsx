@@ -15,7 +15,6 @@ interface FooterProps {
   style?: "light" | "dark";
 }
 
-
 export default function Footer(props: FooterProps) {
   const { title, description, currentStep, style = "dark", nextStep: nextSteps } = props;
   const totalSteps = 3;
